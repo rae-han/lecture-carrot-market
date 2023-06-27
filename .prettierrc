@@ -7,6 +7,6 @@
   "proseWrap": "never",
   "singleQuote": true,
   "htmlWhitespaceSensitivity": "css",
-  "jsxSingleQuote": true,
+  "jsxSingleQuote": false,
   "endOfLine": "lf"
 }

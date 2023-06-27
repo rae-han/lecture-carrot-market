@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <main className='bg-red-500'>
       <Tailwind />
+      <div></div>
     </main>
   );
 };
