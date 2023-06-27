@@ -1,12 +1,12 @@
 {
-  "semi": true,
-  "useTabs": false,
-  "tabWidth": 2,
-  "trailingComma": "all",
   "printWidth": 120,
-  "proseWrap": "never",
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
   "singleQuote": true,
-  "htmlWhitespaceSensitivity": "css",
   "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "proseWrap": "never",
+  "htmlWhitespaceSensitivity": "css",
   "endOfLine": "lf"
 }

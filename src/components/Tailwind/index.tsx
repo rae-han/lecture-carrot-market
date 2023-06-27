@@ -7,6 +7,8 @@ import Fourth from '@/components/Tailwind/Fourth';
 import Fifth from '@/components/Tailwind/Fifth';
 import Sixth from '@/components/Tailwind/Sixth';
 import Seventh from '@/components/Tailwind/Seventh'; // responsive
+import Eighth from '@/components/Tailwind/Eighth';
+import Ninth from '@/components/Tailwind/Ninth'; // darkMode
 
 const Tailwind = () => {
   return (
@@ -17,7 +19,9 @@ const Tailwind = () => {
       {/* <Fourth /> */}
       {/* <Fifth /> */}
       {/* <Sixth /> */}
-      <Seventh />
+      {/* <Seventh /> */}
+      <Eighth />
+      <Ninth />
     </>
   );
 };
