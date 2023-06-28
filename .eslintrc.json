@@ -3,7 +3,7 @@
   // eslint는 기본적으로 퓨어자바스크립트를 이해하기 때문에 확장 문법(typescript, jsx) 같은 경우 그에 상응하는 파싱 과정을 거치고 lint 하도록 함
   "parserOptions": {
     "parserOptions": {
-//      "sourceType": "module",
+      "sourceType": "module"
 //      "ecmaFeatures": { //
 //        "js": true,
 //        "ts": true,

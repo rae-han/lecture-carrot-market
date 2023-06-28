@@ -77,8 +77,8 @@ const First = () => {
               </button>
             </div>
           </div>
-          <a target="_blank" href="www.naver.com">
-            asdf
+          <a target="_blank" href="https://example.com/">
+            123
           </a>
           <div className="flex justify-between items-center">
             <span className="font-medium text-2xl">$450</span>
