@@ -11,6 +11,18 @@ eslint-config-prettier
 @typescript-eslint/parser 
 prettier     
 
+##
+Prettier와 충돌하는 ESLint 규칙들을 꺼주는 eslint-config-prettier
+Prettier를 ESLint 규칙으로 실행시켜주는 eslint-plugin-prettier
+Prettier를 실행한 직후 ESLint를 실행시켜주는 prettier-eslint
+eslint-plugin-prettier와 prettier-eslint는 여러 단점들이 있어 Prettier 측에서는 eslint-config-prettier를 가장 추천
+
+// 파일을 저장할 때마다 `eslint` 규칙에 따라 자동으로 코드를 수정
+"editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+// `prettier`를 기본 포맷터로 지정
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+// 파일을 저장할 때마다 포매팅 실행
+"editor.formatOnSave": true,
 
 
 hover (&:hover)

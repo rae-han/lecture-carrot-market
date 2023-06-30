@@ -64,27 +64,32 @@
 
     // ## eslint ======== ======== ======== ========
     // site: https://eslint.org/docs/latest/rules
-    "arrow-body-style": "off",
+
     // arrow func 사용 시 return 키워드 및 중괄호 대신 바로 값을 반환하도록 함
-    "lines-between-class-members": "off",
+    "arrow-body-style": "off",
     // 클래스 구성원(필드, 메서드) 사이 빈 줄에 대한 규칙
-    "no-param-reassign": ["error", { "props": false }],
+    "lines-between-class-members": "off",
+    // 함수 최대 길이(세로) 제한
+    "max-lines-per-function": ["error", { max: 12 }],
+    // 매개변수 갯수 제한
+    "max-params": ["error", 4],
     // 매개변수로 받은 값의 재할당을 막는다.
-    "no-plusplus": "off",
+    "no-param-reassign": ["error", { "props": false }],
     // 단항 연산자(++, --) 사용을 허락하지 않는다.
-    "no-prototype-builtins": "error",
+    "no-plusplus": "off",
     // Object.prototype 메소드 사용을 금지.
     // 이유: https://www.linkedin.com/posts/getify_apologies-for-this-angry-rant-but-its-activity-6961111118924718081-gfte/?utm_source=share&utm_medium=member_desktop
-    "no-restricted-exports": ["error", { "restrictDefaultExports": { "defaultFrom": false } }],
+    "no-prototype-builtins": "error",
     // 특정 이름을 가진 값을 내보내기 할수 없게 한다. 뒤에 객체 대신 배열을 사용하고 문자열 값을 넣으면 해당하는 모든 값을 내보내기 이름으로 사용할 수 없다.
-    "no-shadow": "off",
+    "no-restricted-exports": ["error", { "restrictDefaultExports": { "defaultFrom": false } }],
     // 외부에서 선언된 변수를 덮어 씌우는 변수 선언에 대한 규칙(ex. 함수 안에 item이 있고 그 함수 안에 array 고차 함수를 사용할 때 매개변수 명이 item이면 안됨)
-    "no-unused-expressions": ["warn"],
+    "no-shadow": "off",
     // 사용하지 않는 표현식에 대한 규칙
-    "no-unused-vars": "off",
+    "no-unused-expressions": ["warn"],
     // 쓰지 않는 변수에 대한 규칙 (끄고 IDE의 기능을 이용해도 될 듯)
-    "prefer-destructuring": ["error", { "object": true, "array": false }],
+    "no-unused-vars": "off",
     // 구조분해 할당을 권장하는 규칙
+    "prefer-destructuring": ["error", { "object": true, "array": false }],
 
     // ## typescript-eslint ======== ======== ======== ========
     // site: https://typescript-eslint.io/
@@ -97,35 +102,38 @@
     // github: https://github.com/jsx-eslint/eslint-plugin-react
     // rules: https://github.com/jsx-eslint/eslint-plugin-react#list-of-supported-rules
     // rules doc: https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules
-    "react/button-has-type": "off",
+
     // button에 타입을 명시해주는 규칙 (submit, reset, ...)
-    "react/display-name": "off",
+    "react/button-has-type": "off",
     // 익명 컴포넌트 함수를 허용할지에 대한 규칙.
-    "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
+    "react/display-name": "off",
     // 컴포넌트 선언 식과, 그 컴포넌트의 익명, 기명 여부에 관한 규칙.
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
     // JSX 파일 확장자에 대한 규칙.
-    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     // 하나의 JSX 엘리먼트는 한 줄을 차지한다. 이 규칙을 끄지 않으면 공백({' '})이 한 줄을 차지할 수도 있다.
-    "react/jsx-max-depth": ["warn", { "max":  6 }],
+    "react/jsx-one-expression-per-line": "off",
     // JSX 최대 depth 지정. (들여쓰기, 콜백 지옥을 떠올리면 된다.)
-    "react/jsx-props-no-spreading": "off",
+    "react/jsx-max-depth": ["warn", { "max":  6 }],
     // 전개 연산자 props를 허용하지 않는 규칙 <MyComponent {...props} />
-    "react/jsx-wrap-multilines": "off",
+    "react/jsx-props-no-spreading": "off",
     // 여러줄 JSX를 반환할 때, 중괄호를 붙여주고 따로 분리해 준다. 활성화 시키는 것이 좋지만 prettier에서 해주는 것 같다. 안해준다면 활성화 시키자.
-    "react/prop-types": "off",
+    "react/jsx-wrap-multilines": "off",
     // propTypes에 대한 규칙 (typescrip 체커 도움을 받자.)
-    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     // jsx 파일 import React from 'react'; 생략을 허용하지 않음.
-    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
     // defaultProps 값 확인 (typescrip 체커 도움을 받자.)
-    "react/self-closing-comp": "off",
+    "react/require-default-props": "off",
     // 태그 안이 비었을때 자동으로 닫는 태그로 바꿈 (<div></div> => <div />, 자동 저장을 활성화 했다면 불편하지만 그게 아니라면 활성화 시키는게 좋아보인다.
+    "react/self-closing-comp": "off",
 
     // ## eslint-plugin-import ======== ======== ======== ========
     // github: https://github.com/import-js/eslint-plugin-import/tree/main
     // rules: https://github.com/import-js/eslint-plugin-import/tree/main/docs/rules
-    "import/extensions": [ // 확장명 명시에 대한 규칙
+
+    // 확장명 명시에 대한 규칙
+    "import/extensions": [
       "error",
       "ignorePackages",
       {
@@ -135,23 +143,23 @@
         "tsx": "never"
       }
     ],
-    "import/no-anonymous-default-export": "off",
     // export default 할 때 익명 값을 허용해 줄 지에 대한 규칙
+    "import/no-anonymous-default-export": "off",
+    // package.json에 선언되지 않은 외부 모듈의 가져오기에 대한 규칙
+    // 테스트나 디자인 시스템을 위해서 허용해줘야하는 부분이 있다.
     "import/no-extraneous-dependencies": [
-      // package.json에 선언되지 않은 외부 모듈의 가져오기에 대한 규칙
-      // 테스트나 디자인 시스템을 위해서 허용해줘야하는 부분이 있다.
       "error",
       {
         "devDependencies": ["**/*.test.tsx", "**/*.stories.*", "**/.storybook/**/*.*", "setupTests.ts"],
         "peerDependencies": true
       }
     ],
-    "import/no-unresolved": "off",
     // 파일 경로에 대한 옵션
+    "import/no-unresolved": "off",
+    // import 순서에 대한 규칙, 주로 경로와 파일명으로 그룹을 짓고 그 그룹간 개행에 대한 규칙
+    // 같은 group 끼리는 알파벳 오름차순으로 정렬 됨
+    // groups 를 통해 그룹을 지으면 각 그룹간엔 개행이 추가 됨
     "import/order": [
-      // import 순서에 대한 규칙, 주로 경로와 파일명으로 그룹을 짓고 그 그룹간 개행에 대한 규칙
-      // 같은 group 끼리는 알파벳 오름차순으로 정렬 됨
-      // groups 를 통해 그룹을 지으면 각 그룹간엔 개행이 추가 됨
       "error",
       {
         "pathGroups": [
@@ -204,16 +212,17 @@
         "newlines-between": "always"
       }
     ],
-    "import/prefer-default-export": "off",
     // 한 파일 + 하나의 내보내기(export) 허용하지 않음.
+    "import/prefer-default-export": "off",
 
     // ## eslint-plugin-jsx-a11y ======== ======== ======== ========
     // github: eslint-plugin-jsx-a11y
     // rules: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/main/docs/rules
-    "jsx-a11y/click-events-have-key-events": "off",
+
     // onClick 이벤트가 있을 때 수반 되어야 할 이벤트에 대한 규칙, 접근성과 관련돼 있는거 같다.
+    "jsx-a11y/click-events-have-key-events": "off",
+    // label 태그가 연결된 엘리먼트(htmlFor 같은)나 컨트롤 엘리먼트가 없다면 에러를 발생시킨다.
     "jsx-a11y/label-has-associated-control": [
-      // label 태그가 연결된 엘리먼트(htmlFor 같은)나 컨트롤 엘리먼트가 없다면 에러를 발생시킨다.
       "error",
       {
         "labelComponents": ["label"],
@@ -222,8 +231,8 @@
       }
     ]
   },
+  // 일부 파일에서 약간 다른 설정을 해주고 싶을 때 사용.
   "overrides": [
-    // 일부 파일에서 약간 다른 설정을 해주고 싶을 때 사용.
     {
       "files": ["*.jsx", "*.tsx"],
       "rules": {
