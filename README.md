@@ -24,6 +24,11 @@ eslint-plugin-prettier와 prettier-eslint는 여러 단점들이 있어 Prettier
 // 파일을 저장할 때마다 포매팅 실행
 "editor.formatOnSave": true,
 
+https://tech.kakao.com/2019/12/05/make-better-use-of-eslint/
+
+https://github.com/dustinspecker/awesome-eslint
+https://awesomerank.github.io/lists/dustinspecker/awesome-eslint.html
+
 
 hover (&:hover)
 focus (&:focus)
