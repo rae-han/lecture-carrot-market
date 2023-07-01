@@ -11,6 +11,12 @@ eslint-config-prettier
 @typescript-eslint/parser 
 prettier     
 
+npm install --save-dev eslint
+npm install eslint eslint-plugin-react --save-dev
+npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
+npm install eslint-plugin-import --save-dev
+npm install eslint-plugin-jsx-a11y --save-dev
+
 ##
 Prettier와 충돌하는 ESLint 규칙들을 꺼주는 eslint-config-prettier
 Prettier를 ESLint 규칙으로 실행시켜주는 eslint-plugin-prettier
@@ -28,6 +34,28 @@ https://tech.kakao.com/2019/12/05/make-better-use-of-eslint/
 
 https://github.com/dustinspecker/awesome-eslint
 https://awesomerank.github.io/lists/dustinspecker/awesome-eslint.html
+
+next 설치 초기 eslint
+"eslint": "8.44.0",
+"eslint-config-next": "13.4.7",
+->         "eslint-plugin-import": "^2.26.0",
+"eslint-plugin-jsx-a11y": "^6.5.1",
+"eslint-plugin-react": "^7.31.7",
+"eslint-plugin-react-hooks": "^4.5.0"
+
+eslint-config-airbnb
+"eslint": "^7.32.0 || ^8.2.0",
+"eslint-plugin-import": "^2.25.3",
+"eslint-plugin-jsx-a11y": "^6.5.1",
+"eslint-plugin-react": "^7.28.0",
+"eslint-plugin-react-hooks": "^4.3.0"
+
+eslint
+eslint-plugin-import
+eslint-plugin-jsx-a11y
+eslint-plugin-react
+eslint-plugin-react-hooks
+
 
 
 hover (&:hover)

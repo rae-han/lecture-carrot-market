@@ -31,8 +31,12 @@
 // eslint에서 기본적으로 제공되는 규칙 외에 추가 규칙을 사용할수 있도록 넣어주는 것.
   "plugins": ["@typescript-eslint"],
   // javascript가 어떤 환경에서 동작할 지
+  // 전역 객체를 eslint가 인식할수 있게 함.
+  // globalThis도 있지만 명시적이지 않다. 어떤 오류가 발생할지 모름.
   "env": {
+    // window, document 등
     "browser": true,
+    // global 등.
     "node": true,
     "jasmine": true,
     "jest": true
@@ -70,7 +74,7 @@
     // 클래스 구성원(필드, 메서드) 사이 빈 줄에 대한 규칙
     "lines-between-class-members": "off",
     // 함수 최대 길이(세로) 제한
-    "max-lines-per-function": ["error", { max: 12 }],
+//    "max-lines-per-function": ["error", { max: 12 }],
     // 매개변수 갯수 제한
     "max-params": ["error", 4],
     // 매개변수로 받은 값의 재할당을 막는다.
@@ -156,12 +160,25 @@
     ],
     // 파일 경로에 대한 옵션
     "import/no-unresolved": "off",
-    // import 순서에 대한 규칙, 주로 경로와 파일명으로 그룹을 짓고 그 그룹간 개행에 대한 규칙
-    // 같은 group 끼리는 알파벳 오름차순으로 정렬 됨
-    // groups 를 통해 그룹을 지으면 각 그룹간엔 개행이 추가 됨
+    // import 순서와 그 모양에 대한 규칙
+    // 같은 groups 끼리는 알파벳 오름차순으로 정렬되고 그 그룹간 개행을 설정할 수 있음.
     "import/order": [
       "error",
       {
+        // import 되는 순서를 정의함.
+        // 생략된 문자열은 마지막 요소와 함께 그룹화 된다.
+        // 그룹화 가능한 문자열: builtin, external, internal, unknown, parent, sibling, index, object, type
+        "groups": [
+          ["external", "builtin"],
+          ["type", "internal", "object"],
+          ["parent", "sibling", "index"],
+          ["unknown"]
+        ],
+        // 추가적으로 옵션을 설정하고 싶은 경로를 별칭과 함께 다시 그룹화
+        // pattern: 경로의 minimatch pattern (https://github.com/motemen/minimatch-cheat-sheet)
+        // patternOptions: minimatch를 위한 옵션
+        // group: 적용될 그룹의 타입
+        // position: 적용될 그룹에 배치될 위치(before, after), 생략할 경우 앞, 뒤가 아닌 그룹과 같이 배치된다.
         "pathGroups": [
           {
             "pattern": "@/lib/**",
@@ -204,19 +221,19 @@
             "group": "index"
           }
         ],
-        "groups": [
-          ["external", "builtin"],
-          ["type", "internal", "object"],
-          ["parent", "sibling", "index"]
-        ],
+        // 그룹 사이 줄바꿈을 강제화 하거나 금지하는 옵션.
+        // ignore, aways, never, always-and-inside-groups
         "newlines-between": "always"
+        // pathGroups에서 설정에 의해 처리되지 않는 import type을 정의
+        // external 그룹처럼 보이는 pathGroups 옵션을 처리할 때 주로 필요
+//        "pathGroupsExcludedImportTypes": ["react", "unknown"],
       }
     ],
     // 한 파일 + 하나의 내보내기(export) 허용하지 않음.
     "import/prefer-default-export": "off",
 
     // ## eslint-plugin-jsx-a11y ======== ======== ======== ========
-    // github: eslint-plugin-jsx-a11y
+    // github: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
     // rules: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/tree/main/docs/rules
 
     // onClick 이벤트가 있을 때 수반 되어야 할 이벤트에 대한 규칙, 접근성과 관련돼 있는거 같다.
@@ -233,17 +250,17 @@
   },
   // 일부 파일에서 약간 다른 설정을 해주고 싶을 때 사용.
   "overrides": [
-    {
-      "files": ["**/__tests__/**/*", "**/*.{spec,test}.*"],
-      "env": {
-        "jest/globals": true
-      },
-      "plugins": ["jest", "jest-dom", "testing-library"],
-      "extends": [
-        "plugin:jest/recommended",
-        "plugin:jest-dom/recommended",
-        "plugin:testing-library/react"
-      ]
-    }
+//    {
+//      "files": ["**/__tests__/**/*", "**/*.{spec,test}.*"],
+//      "env": {
+//        "jest/globals": true
+//      },
+//      "plugins": ["jest", "jest-dom", "testing-library"],
+//      "extends": [
+//        "plugin:jest/recommended",
+//        "plugin:jest-dom/recommended",
+//        "plugin:testing-library/react"
+//      ]
+//    }
   ]
 }
