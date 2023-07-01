@@ -74,7 +74,7 @@
     // 클래스 구성원(필드, 메서드) 사이 빈 줄에 대한 규칙
     "lines-between-class-members": "off",
     // 함수 최대 길이(세로) 제한
-//    "max-lines-per-function": ["error", { max: 12 }],
+    "max-lines-per-function": ["error", { "max": 12 }],
     // 매개변수 갯수 제한
     "max-params": ["error", 4],
     // 매개변수로 받은 값의 재할당을 막는다.

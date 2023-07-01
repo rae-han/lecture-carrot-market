@@ -1,3 +1,27 @@
+## prisma
+npm i -D prisma
+
+npx prisma [명령어]
+
+npx prisma init
+-> prisma 폴더와 .env 파일이 생긴다.
+prisma > schema > db > provider: mysql
+
+planetscale 
+
+brew i planetscale/tap/pscale
+brew install mysql-client
+
+### pscale
+pscale auth login
+
+pscale region list - 지역 리스트를 본다
+
+pscale database create
+pscale database create carrot-market --region ap-northeast
+
+pscale connect carrot-market
+
 
 ## tailwind
 npm install -D tailwindcss postcss autoprefixer
