@@ -12,6 +12,49 @@ planetscale
 brew i planetscale/tap/pscale
 brew install mysql-client
 
+pscale connect carrot-market
+
+// 여기에서 나오는 url을 .env의 DATABASE_URL에 /carrot-market pathname과 함께 적어주자.
+
+// model을 db에 push 하면.
+prisma 는 두 가지 목적으로 schema.prisma 파일을 살펴본다.
+1. model들을 db에 push하고 sql migration을 자동으로 처리하기 위함
+2. db와 상화작용 하기위해 client를 생성하고, 그 client에 자동완성으로 타입을 추가함.
+
+일반적으로 sql, postgresql의 경우 없는 외래키를 사용하면 db에서 오류가 발생한다.
+하지만 vitess는 발생하지 않는다.
+그래서 prisma 쪽에서 해줘야 한다.
+```shell
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+```
+relationMode를 적는 이유는 다른 객체에 연결될 때, 그 객체가 존재하길 바란다는 뜻.
+
+npx prisma db push
+
+Referential integrity (참조 무결성)
+(어떤 다른 모델을 참조하는 경우 해당 모델이 반드시 존재해야 함)
+참조 무결성은 모든 참조가 유효함을 나타내는 데이터 세트의 속성입니다. 참조 무결성을 위해서는 한 레코드가 다른 레코드를 참조하는 경우 반드시 해당 참조하는 레코드가 존재해야 한다. 예를 들어 Post 모델이 user필드를 정의하는 경우 User(모델)도 반드시 존재해야 합니다. 참조 무결성은 참조를 손상시키는 변경을 방지하는 제약 조건과 레코드를 업데이트하거나 삭제할 때 실행되는 참조 작업을 정의함으로써 적용됩니다.
+https://www.prisma.io/docs/concepts/co
+
+planetscale > 프로젝트 > branches > branch > table 선택하면 sql 볼 수 있다.
+
+npx prisma studio
+
+prisma는 관리자 패널뿐 아니라 client라는 것도 제공해 준다.
+
+npm install @prisma/client
+
+// prisma clinet는 mongoose 가은 것.
+
+npx prisma generate // 사실 prisma push 할 때 됐던 내용이라 또 할필욘 없다.
+// 이걸 하면 node_modules에도 프로젝트의 스키마가 추가된다. 
+// 심지어 타입스크립트 타입으로 추가된다.
+node_modules > .prisma > client > index.d.ts
+
 ### pscale
 pscale auth login
 
