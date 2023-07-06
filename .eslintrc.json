@@ -74,7 +74,7 @@
     // 클래스 구성원(필드, 메서드) 사이 빈 줄에 대한 규칙
     "lines-between-class-members": "off",
     // 함수 최대 길이(세로) 제한
-    "max-lines-per-function": ["error", { "max": 12 }],
+//    "max-lines-per-function": ["error", { "max": 12 }],
     // 매개변수 갯수 제한
     "max-params": ["error", 4],
     // 매개변수로 받은 값의 재할당을 막는다.
@@ -118,7 +118,7 @@
     // 하나의 JSX 엘리먼트는 한 줄을 차지한다. 이 규칙을 끄지 않으면 공백({' '})이 한 줄을 차지할 수도 있다.
     "react/jsx-one-expression-per-line": "off",
     // JSX 최대 depth 지정. (들여쓰기, 콜백 지옥을 떠올리면 된다.)
-    "react/jsx-max-depth": ["warn", { "max":  6 }],
+//    "react/jsx-max-depth": ["warn", { "max":  6 }],
     // 전개 연산자 props를 허용하지 않는 규칙 <MyComponent {...props} />
     "react/jsx-props-no-spreading": "off",
     // 여러줄 JSX를 반환할 때, 중괄호를 붙여주고 따로 분리해 준다. 활성화 시키는 것이 좋지만 prettier에서 해주는 것 같다. 안해준다면 활성화 시키자.
