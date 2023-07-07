@@ -2,6 +2,7 @@ import React from 'react';
 import { FieldError, useForm } from 'react-hook-form';
 
 import ReactHookFormAssignment from '@components/RHF';
+import Practice from '@components/RHF/practice';
 
 interface FormData {
   username: string;
@@ -51,7 +52,8 @@ const ReactHookForm = () => {
 
   return (
     <>
-      <ReactHookFormAssignment />
+      {/* <ReactHookFormAssignment /> */}
+      <Practice />
       {/* <form onSubmit={handleSubmit(onValid, onInvalid)}> */}
       {/*  <input */}
       {/*    {...register('username', { */}
