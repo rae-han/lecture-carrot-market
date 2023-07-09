@@ -1,31 +1,51 @@
-import React, { createContext, PropsWithChildren, useContext } from 'react';
+import React from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
-interface FormItem {
-  id: string;
-  value: string;
-  type: string;
+import { FormData } from '@typings/form';
+
+interface Props {
   title: string;
+  register: UseFormRegister<FormData>;
 }
 
-const FormItemContext = createContext({
-  id: '',
-  value: '',
-  type: 'radio',
-  title: '',
-});
-
-export const FormItemWrapper = ({ id, value, type, title, children }: PropsWithChildren<FormItem>) => {
-  const contextValue = { id, value, type, title };
-
-  return <FormItemContext.Provider value={contextValue}>{children}</FormItemContext.Provider>;
+const FormItem = ({ title, register, options }: Props) => {
+  return (
+    <div>
+      <h2>{title}</h2>
+    </div>
+  );
 };
 
-export const Title = ({ ...props }) => {
-  const { title } = useContext(FormItemContext);
+export default FormItem;
 
-  return <h2>{title}</h2>;
-};
-
-FormItemWrapper.Title = Title;
-
-export default FormItemWrapper;
+// import React, { createContext, PropsWithChildren, useContext } from 'react';
+//
+// interface FormItem {
+//   id: string;
+//   value: string;
+//   type: string;
+//   title: string;
+// }
+//
+// const FormItemContext = createContext({
+//   id: '',
+//   value: '',
+//   type: 'radio',
+//   title: '',
+// });
+//
+// export const FormItemWrapper = ({ id, value, type, title, children }: PropsWithChildren<FormItem>) => {
+//   const contextValue = { id, value, type, title };
+//
+//   return <FormItemContext.Provider value={contextValue}>{children}</FormItemContext.Provider>;
+// };
+//
+// export const Title = ({ ...props }) => {
+//   const { title } = useContext(FormItemContext);
+//
+//   return <h2>{title}</h2>;
+// };
+//
+// FormItemWrapper.Title = Title;
+//
+// export default FormItemWrapper;
