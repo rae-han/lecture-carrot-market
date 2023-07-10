@@ -1,14 +1,32 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import Button from '@components/button';
 import Input from '@components/input';
 import { cls } from '@libs/utils';
-
 import type { NextPage } from 'next';
+
+interface EnterForm {
+  email?: string;
+  phone?: string;
+}
 
 const Enter: NextPage = () => {
   const [method, setMethod] = useState<'email' | 'phone'>('email');
-  const onEmailClick = () => setMethod('email');
-  const onPhoneClick = () => setMethod('phone');
+  const { register, handleSubmit, reset } = useForm<EnterForm>();
+
+  const onEmailClick = () => {
+    reset();
+    setMethod('email');
+  };
+  const onPhoneClick = () => {
+    reset();
+    setMethod('phone');
+  };
+  const onValid = (data: EnterForm) => {
+    console.log(data);
+  };
+
   return (
     <div className="mt-16 px-4">
       <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
@@ -40,9 +58,21 @@ const Enter: NextPage = () => {
             </button>
           </div>
         </div>
-        <form className="flex flex-col mt-8 space-y-4">
-          {method === 'email' ? <Input name="email" label="Email address" type="email" required /> : null}
-          {method === 'phone' ? <Input name="phone" label="Phone number" type="number" kind="phone" required /> : null}
+        <form onSubmit={handleSubmit(onValid)} className="flex flex-col mt-8 space-y-4">
+          {method === 'email' ? (
+            <Input
+              register={register('email', {
+                required: true,
+              })}
+              name="email"
+              label="Email address"
+              type="email"
+              required
+            />
+          ) : null}
+          {method === 'phone' ? (
+            <Input register={register('phone')} name="phone" label="Phone number" type="number" kind="phone" required />
+          ) : null}
           {method === 'email' ? <Button text="Get login link" /> : null}
           {method === 'phone' ? <Button text="Get one-time password" /> : null}
         </form>
