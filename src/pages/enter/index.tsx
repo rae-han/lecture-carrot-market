@@ -3,8 +3,9 @@ import { useForm } from 'react-hook-form';
 
 import Button from '@components/button';
 import Input from '@components/input';
-import { cls } from '@libs/utils';
+import { cls } from '@libs/client/utils';
 import type { NextPage } from 'next';
+import useMutation from '@libs/client/useMutation';
 
 interface EnterForm {
   email?: string;
@@ -14,6 +15,7 @@ interface EnterForm {
 const Enter: NextPage = () => {
   const [method, setMethod] = useState<'email' | 'phone'>('email');
   const { register, handleSubmit, reset } = useForm<EnterForm>();
+  const [enter, { loading, data, error }] = useMutation('/api/users/enter');
 
   const onEmailClick = () => {
     reset();
@@ -23,8 +25,19 @@ const Enter: NextPage = () => {
     reset();
     setMethod('phone');
   };
-  const onValid = (data: EnterForm) => {
-    console.log(data);
+  const onValid = (validForm: EnterForm) => {
+    if (loading) return;
+    enter(validForm);
+    // setSubmitting(true);
+    // fetch('/api/users/enter', {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // }).then(() => {
+    //   setSubmitting(false);
+    // });
   };
 
   return (
@@ -33,7 +46,7 @@ const Enter: NextPage = () => {
       <div className="mt-12">
         <div className="flex flex-col items-center">
           <h5 className="text-sm text-gray-500 font-medium">Enter using:</h5>
-          <div className="grid  border-b  w-full mt-8 grid-cols-2 ">
+          <div className="grid border-b w-full mt-8 grid-cols-2 ">
             <button
               className={cls(
                 'pb-4 font-medium text-sm border-b-2',
@@ -73,8 +86,8 @@ const Enter: NextPage = () => {
           {method === 'phone' ? (
             <Input register={register('phone')} name="phone" label="Phone number" type="number" kind="phone" required />
           ) : null}
-          {method === 'email' ? <Button text="Get login link" /> : null}
-          {method === 'phone' ? <Button text="Get one-time password" /> : null}
+          {method === 'email' ? <Button text={loading ? 'Loading' : 'Get login link'} /> : null}
+          {method === 'phone' ? <Button text={loading ? 'Loading' : 'Get one-time password'} /> : null}
         </form>
 
         <div className="mt-8">
