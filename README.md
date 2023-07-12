@@ -34,6 +34,7 @@ datasource db {
 relationMode를 적는 이유는 다른 객체에 연결될 때, 그 객체가 존재하길 바란다는 뜻.
 
 npx prisma db push
+// 이걸 해야 모델에 따라 디비 테이블이 생성된다.
 
 Referential integrity (참조 무결성)
 (어떤 다른 모델을 참조하는 경우 해당 모델이 반드시 존재해야 함)
