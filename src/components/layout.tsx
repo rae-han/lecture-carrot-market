@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { cls } from '@libs/utils';
+import { cls } from '@libs/client/utils';
 
 interface LayoutProps {
   title?: string;
@@ -21,7 +21,13 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
       <div className="bg-white w-full h-12 max-w-xl justify-center text-lg px-10 font-medium  fixed text-gray-800 border-b top-0  flex items-center">
         {canGoBack ? (
           <button onClick={onClick} className="absolute left-4">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
             </svg>
           </button>
@@ -38,7 +44,13 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
                 router.pathname === '/' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -56,7 +68,13 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
                 router.pathname === '/community' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -74,7 +92,13 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
                 router.pathname === '/chats' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -92,7 +116,13 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
                 router.pathname === '/live' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -110,7 +140,13 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
                 router.pathname === '/profile' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
