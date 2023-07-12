@@ -9,9 +9,10 @@ prisma > schema > db > provider: mysql
 
 planetscale 
 
-brew i planetscale/tap/pscale
+brew install planetscale/tap/pscale
 brew install mysql-client
 
+pscale auth login
 pscale connect carrot-market
 
 // 여기에서 나오는 url을 .env의 DATABASE_URL에 /carrot-market pathname과 함께 적어주자.
