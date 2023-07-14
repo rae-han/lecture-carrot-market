@@ -8,7 +8,7 @@ const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
 async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) {
   const { phone, email } = req.body;
-  const user = phone ? { phone: +phone } : email ? { email } : null;
+  const user = phone ? { phone } : email ? { email } : null;
   if (!user) return res.status(400).json({ ok: false });
   const payload = `${Math.floor(100000 + Math.random() * 900000)}`;
   const token = await client.token.create({
@@ -28,6 +28,17 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
     },
   });
   console.log(token);
+  const payload = phone ? { phone: +phone } : { email };
+  // const user = await client.user.upsert({
+  //   where: {
+  //     ...payload,
+  //   },
+  //   create: {
+  //     name: "Anonymous",
+  //     ...payload,
+  //   },
+  //   update: {},
+  // });
 
   if (phone) {
     // const message = await twilioClient.messages.create({
@@ -79,6 +90,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
   // return res.status(200).end();
   return res.json({
     ok: true,
+    token: payload,
   });
 }
 
