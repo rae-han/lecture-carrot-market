@@ -40,7 +40,7 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
           <Link href="/">
             <button
               className={cls(
-                'flex flex-col items-center space-y-2 ',
+                'flex flex-col products-center space-y-2 ',
                 router.pathname === '/' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
@@ -64,7 +64,7 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
           <Link href="/community">
             <button
               className={cls(
-                'flex flex-col items-center space-y-2 ',
+                'flex flex-col products-center space-y-2 ',
                 router.pathname === '/community' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
@@ -88,7 +88,7 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
           <Link href="/chats">
             <button
               className={cls(
-                'flex flex-col items-center space-y-2 ',
+                'flex flex-col products-center space-y-2 ',
                 router.pathname === '/chats' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
@@ -112,7 +112,7 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
           <Link href="/live">
             <button
               className={cls(
-                'flex flex-col items-center space-y-2 ',
+                'flex flex-col products-center space-y-2 ',
                 router.pathname === '/live' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >
@@ -136,7 +136,7 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
           <Link href="/profile">
             <button
               className={cls(
-                'flex flex-col items-center space-y-2 ',
+                'flex flex-col products-center space-y-2 ',
                 router.pathname === '/profile' ? 'text-orange-500' : 'hover:text-gray-500 transition-colors',
               )}
             >

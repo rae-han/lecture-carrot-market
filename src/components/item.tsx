@@ -10,7 +10,7 @@ interface ItemProps {
 
 const Item = ({ title, price, comments, hearts, id }: ItemProps) => {
   return (
-    <Link href={`/items/${id}`}>
+    <Link href={`/products/${id}`}>
       <button className="flex w-full px-4 pt-5 cursor-pointer justify-between">
         <div className="flex space-x-4">
           <div className="w-20 h-20 bg-gray-400 rounded-md" />
@@ -21,7 +21,13 @@ const Item = ({ title, price, comments, hearts, id }: ItemProps) => {
         </div>
         <div className="flex space-x-2 items-end justify-end">
           <div className="flex space-x-0.5 items-center text-sm  text-gray-600">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -32,7 +38,13 @@ const Item = ({ title, price, comments, hearts, id }: ItemProps) => {
             <span>{hearts}</span>
           </div>
           <div className="flex space-x-0.5 items-center text-sm  text-gray-600">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

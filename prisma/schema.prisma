@@ -11,24 +11,37 @@ datasource db {
   relationMode = "prisma"
 }
 
+model User {
+  id        Int       @id @default(autoincrement())
+  phone     String?   @unique
+  email     String?   @unique
+  name      String
+  avatar    String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  tokens    Token[]
+  products  Product[]
+}
+
 model Token {
   id        Int      @id @default(autoincrement())
   payload   String   @unique
-  user      User     @relation(fields: [userId], references: [id]) // 실제로 이 데이터가 필드로 들어가지 않는다.
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // 실제로 이 데이터가 필드로 들어가지 않는다.
   userId    Int // 이게 들어간다.
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  phone     String?  @unique
-  email     String?  @unique
-  name      String
-  avatar    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  tokens    Token[]
+model Product {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  image       String
+  name        String
+  price       Int
+  description String   @db.MediumText
 }
 
 // model Like {

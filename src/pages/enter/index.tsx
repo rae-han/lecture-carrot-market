@@ -22,7 +22,7 @@ interface MutationResult {
 }
 
 const Enter: NextPage = () => {
-  const [enter, { loading, data, error }] = useMutation<MutationResult>('/api/users/enter');
+  const [enter, { loading, data, error }] = useMutation<MutationResult & { token?: string }>('/api/users/enter');
   const [confirmToken, { loading: tokenLoading, data: tokenData }] = useMutation<MutationResult>('/api/users/confirm');
   const { register, handleSubmit, reset } = useForm<EnterForm>();
   const { register: tokenRegister, handleSubmit: tokenHandleSubmit } = useForm<TokenForm>();
@@ -53,6 +53,7 @@ const Enter: NextPage = () => {
   }, [tokenData, router]);
 
   console.log({ data });
+  console.log(data?.token);
 
   return (
     <div className="mt-16 px-4">

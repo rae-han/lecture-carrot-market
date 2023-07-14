@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import { useForm } from 'react-hook-form';
+import { SWRConfig } from 'swr';
 
 import type { AppProps } from 'next/app';
 
@@ -11,9 +12,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   });
 
   return (
-    <div className="w-full max-w-xl mx-auto">
-      <Component {...pageProps} />
-    </div>
+    <SWRConfig
+      value={{
+        fetcher: (url: string) => fetch(url).then((response) => response.json()),
+      }}
+    >
+      <div className="w-full max-w-xl mx-auto">
+        <Component {...pageProps} />
+      </div>
+    </SWRConfig>
   );
 };
 

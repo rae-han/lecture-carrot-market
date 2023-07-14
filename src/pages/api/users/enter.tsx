@@ -28,7 +28,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
     },
   });
   console.log(token);
-  const payload = phone ? { phone: +phone } : { email };
+  // const payload = phone ? { phone: +phone } : { email };
   // const user = await client.user.upsert({
   //   where: {
   //     ...payload,
@@ -94,4 +94,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
   });
 }
 
-export default withHandler('POST', handler);
+export default withHandler({ method: 'POST', handler, isPrivate: false });
