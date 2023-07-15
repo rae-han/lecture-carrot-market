@@ -1,3 +1,14 @@
+findFirst unique가 아닌 값으로 찾는 것
+client.fav.findFirst
+
+client.fav.deleteMany({
+    where: {
+        userId: user.id // 유저 아이디가 일치하는 모든 것을 다 지움.
+    }
+})
+
+
+
 ## iron session
 서명 암호화된 쿠키를 사용하는 nodejs 무상태 세션 도구 
 값이 있다면 그걸 암호화해서 보낸다.
